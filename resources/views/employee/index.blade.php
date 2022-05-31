@@ -4,6 +4,11 @@
 
 <div class="container">
     <div class="col-md-12 mt-4">
+        @if(session()->has('status'))
+            <div class="alert alert-success">
+                {{ session()->get('status') }}
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">Employee list
                 <a href="{{ url('add-employee') }}" class="btn btn-primary float-end">Add Emp</a>
@@ -32,10 +37,10 @@
                             <td>{{$emp->designation}}</td>
                             <td>{{$emp->status}}</td>
                             <td>
-                                <a href="" class="btn btn-primary">Edit</a>
+                                <a href="{{ url('edit-employee/'.$emp->id) }}" class="btn btn-primary">Edit</a>
                             </td>
                             <td>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="{{ url('delete-employee/'.$emp->id) }}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach
