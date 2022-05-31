@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EmployeeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,7 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return "About Us";
 });
+
+Route::get('employee', [EmployeeController::class, 'index']);
+Route::get('/add-employee', [EmployeeController::class, 'create']);
+Route::post('/store-employee', [EmployeeController::class, 'store']);
