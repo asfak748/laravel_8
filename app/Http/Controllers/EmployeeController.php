@@ -26,7 +26,7 @@ class EmployeeController extends Controller
         $employee->phone = $request->input('phone');
         $employee->designation = $request->input('designation');
 
-        if($employee->hasFile('image'))
+        if($request->hasFile('image'))
         {
             $file = $request->file('image');
             $extention = $file->getClientOriginalExtension();
